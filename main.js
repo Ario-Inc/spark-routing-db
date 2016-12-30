@@ -1,3 +1,4 @@
+var settings = require('./settings.js');
 var loki = require('lokijs');
 var db = new loki('./routing.db', {
     autoload: true,
@@ -46,7 +47,7 @@ ipc.config.id = 'routingdb';
 
 //Initialize ipc server
 ipc.serveNet(
-    '10.0.1.7',
+    settings.ipaddress,
     2000,
     function() {
         //console.log("Got IPC Message...");
@@ -126,9 +127,9 @@ var server = http.createServer(function(req, res) {
 
     }
 });
-server.listen(80);
+server.listen(80, settings.ipaddress);
 
 http.createServer(function(req, res) {
     res.writeHead(502);
     res.end("Device not found");
-}).listen(88);
+}).listen(88, '127.0.0.1');
