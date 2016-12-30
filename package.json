@@ -1,0 +1,25 @@
+{
+	"name": "spark-routing-db",
+	"version": "0.0.1",
+	"license": "Apache-2.0",
+	"repository": {
+		"type": "git",
+		"url": "https://github.com/wdimmit/spark-routing-db"
+	},
+	"homepage": "https://github.com/wdimmit/spark-routing-db",
+	"bugs": "https://github.com/wdimmit/spark-routing-db/issues",
+	"author": {
+		"name": "Will Dimmit",
+		"email": "will@arioliving.com",
+		"url": "https://www.arioliving.com/"
+	},
+	"dependencies": {
+		"node-ipc": "*",
+		"lokijs": "*",
+		"http-proxy": "*"
+	},
+	"scripts": {
+		"start": "node main.js"
+	},
+	"main": "main.js"
+}
