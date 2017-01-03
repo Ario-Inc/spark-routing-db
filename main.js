@@ -123,13 +123,13 @@ var server = http.createServer(function(req, res) {
         proxy.web(req, res, { target: 'http://'+server+':8080' });
     }
     else {
-        proxy.web(req, res, { target: 'http://localhost:88' });
+        proxy.web(req, res, { target: 'http://localhost:8888' });
 
     }
 });
-server.listen(80, settings.ipaddress);
+server.listen(8000, settings.ipaddress);
 
 http.createServer(function(req, res) {
     res.writeHead(502);
     res.end("Device not found");
-}).listen(88, '127.0.0.1');
+}).listen(8888, '127.0.0.1');
