@@ -120,14 +120,20 @@ var server = http.createServer(function(req, res) {
         }
     }
     if (server) {
-        proxy.web(req, res, { target: 'http://'+server+':8080' });
+        try {
+	  proxy.web(req, res, { target: 'http://'+server+':8080' });
+	}
+	catch (ex) {
+	 console.log('Dest server not available');
+         proxy.web(req, res, { target: 'http://localhost:8888' });
+	}
+
     }
     else {
         proxy.web(req, res, { target: 'http://localhost:8888' });
-
     }
 });
-server.listen(8000, settings.ipaddress);
+server.listen(8000, '127.0.0.1');
 
 http.createServer(function(req, res) {
     res.writeHead(502);
